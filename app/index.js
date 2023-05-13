@@ -1,6 +1,8 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 // @expo/vector-icons already installed
 import { FontAwesome } from '@expo/vector-icons';
+// @ts-ignore
+import car from '../assets/images/car.png';
 
 export default function Page() {
   return (
@@ -16,6 +18,12 @@ export default function Page() {
           color='gray'
         />
       </View>
+
+      <Image
+        source={car}
+        style={styles.image}
+        resizeMode='contain'
+      />
     </View>
   );
 }
@@ -40,5 +48,10 @@ const styles = StyleSheet.create({
   subtitle: {
     color: 'gray',
     fontWeight: '500',
+  },
+  image: {
+    // backgroundColor: 'blue',
+    width: '100%',
+    height: 300,
   },
 });
