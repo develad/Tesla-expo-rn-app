@@ -1,6 +1,13 @@
 import { StyleSheet, Text, View, Image } from 'react-native';
 // @expo/vector-icons already installed
-import { FontAwesome } from '@expo/vector-icons';
+import {
+  FontAwesome,
+  Entypo,
+  MaterialCommunityIcons,
+  FontAwesome5,
+  Ionicons,
+} from '@expo/vector-icons';
+
 // @ts-ignore
 import car from '../assets/images/car.png';
 
@@ -24,6 +31,29 @@ export default function Page() {
         style={styles.image}
         resizeMode='contain'
       />
+
+      <View style={styles.controls}>
+        <Entypo
+          name='lock'
+          size={26}
+          color='gray'
+        />
+        <MaterialCommunityIcons
+          name='fan'
+          size={26}
+          color='gray'
+        />
+        <FontAwesome5
+          name='bolt'
+          size={26}
+          color='gray'
+        />
+        <Ionicons
+          name='car-sport-sharp'
+          size={26}
+          color='gray'
+        />
+      </View>
     </View>
   );
 }
@@ -53,5 +83,9 @@ const styles = StyleSheet.create({
     // backgroundColor: 'blue',
     width: '100%',
     height: 300,
+  },
+  controls: {
+    flexDirection: 'row-reverse',
+    justifyContent: 'space-around',
   },
 });
