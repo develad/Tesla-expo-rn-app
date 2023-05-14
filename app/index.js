@@ -1,60 +1,41 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
 // @expo/vector-icons already installed
-import {
-  FontAwesome,
-  Entypo,
-  MaterialCommunityIcons,
-  FontAwesome5,
-  Ionicons,
-} from '@expo/vector-icons';
 
-// @ts-ignore
-import car from '../assets/images/car.png';
+// import { StatusBar } from 'expo-status-bar';
+import { FontAwesome } from '@expo/vector-icons';
+
+import MenuOption from '../components/MenuOption';
+
+import menuOptions from '../assets/menuOptions';
+import Controls from '../components/Controls';
 
 export default function Page() {
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <View>
-          <Text style={styles.title}>My model S</Text>
-          <Text style={styles.subtitle}>Parked</Text>
+    <>
+      {/* <StatusBar style='inverted' /> */}
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <View>
+            <Text style={styles.title}>My model S</Text>
+            <Text style={styles.subtitle}>Parked</Text>
+          </View>
+          <FontAwesome
+            name='user-circle'
+            size={30}
+            color='gray'
+          />
         </View>
-        <FontAwesome
-          name='user-circle'
-          size={30}
-          color='gray'
+
+        {/* <Controls /> */}
+
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={menuOptions}
+          renderItem={MenuOption}
+          ListHeaderComponent={<Controls />}
         />
       </View>
-
-      <Image
-        source={car}
-        style={styles.image}
-        resizeMode='contain'
-      />
-
-      <View style={styles.controls}>
-        <Entypo
-          name='lock'
-          size={26}
-          color='gray'
-        />
-        <MaterialCommunityIcons
-          name='fan'
-          size={26}
-          color='gray'
-        />
-        <FontAwesome5
-          name='bolt'
-          size={26}
-          color='gray'
-        />
-        <Ionicons
-          name='car-sport-sharp'
-          size={26}
-          color='gray'
-        />
-      </View>
-    </View>
+    </>
   );
 }
 
@@ -78,14 +59,5 @@ const styles = StyleSheet.create({
   subtitle: {
     color: 'gray',
     fontWeight: '500',
-  },
-  image: {
-    // backgroundColor: 'blue',
-    width: '100%',
-    height: 300,
-  },
-  controls: {
-    flexDirection: 'row-reverse',
-    justifyContent: 'space-around',
   },
 });
